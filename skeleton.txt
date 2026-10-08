@@ -1,0 +1,54 @@
+
+
+int ft_printf(const char *format, ...)
+	
+
+
+We will need
+
+
+a function to read through the format string.
+
+this function will have an int return_value; and int i; 
+char c; va_list list;
+va_start(list, format); 
+
+that will be our counter and
+ we will have a while loop
+
+
+
+while format[i] != '\0'{
+
+	inside the loop,
+	we will go through the format string, format[i] != '%' print every literal char i++  return_value++, but
+	 if format[i] == '%' {
+	c = format[i + 1];
+
+	we will then enter a 
+	
+	switch (c) {
+	case 's':
+	char *str = va_arg(list, char *)
+	ft_putstr_fd(str);
+	return_value++;
+	i++;
+	break;
+
+	(for each helper function)
+	case 'd':
+	ft_putnbr_fd (defined in a diff file)
+	same pattern
+	case 'c':
+	ft_putchar_fd
+	same pattern
+	}
+	 
+	 }
+	etc
+	va_end(list);
+
+}
+
+1. the fd family of put data types.
+
