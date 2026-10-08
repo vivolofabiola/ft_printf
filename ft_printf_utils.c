@@ -8,7 +8,7 @@ int	ft_putchar_fd(char c, int fd)
 
 int	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -19,30 +19,28 @@ int	ft_putstr_fd(char *s, int fd)
 	return (i);
 }
 
-int	ft_putnbr_fd(int n, int fd)
+static int	put_unsigned(unsigned int n, int fd)
 {
+	int		count;
 	char	digit;
 
-	// Min INT
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-	}
-	else if (n < 0)
+	count = 0;
+	if (n > 9)
+		count = put_unsigned(n / 10, fd);
+	digit = (n % 10 + '0');
+	write(fd, &digit, 1);
+	return (count + 1);
+}
+
+int	ft_putnbr_fd(int n, int fd)
+{
+	unsigned int	new_n;
+
+	if (n < 0)
 	{
 		write(fd, "-", 1);
-		n = -n;
-		ft_putnbr_fd(n, fd);
+		new_n = (unsigned int)(-(long)n);
+		return (1 + put_unsigned(new_n, fd));
 	}
-	else if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-	{
-		digit = n + 48;
-		write(fd, &digit, 1);
-		return (1);
-	}
+	return (put_unsigned((unsigned int)n, fd));
 }
