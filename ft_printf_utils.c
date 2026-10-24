@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fvivolo <fvivolo@student.42prague.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/24 17:51:43 by fvivolo           #+#    #+#             */
+/*   Updated: 2026/10/24 17:51:43 by fvivolo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_putchar_fd(char c, int fd)
@@ -10,6 +22,11 @@ int	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
+	if (s == NULL)
+	{
+		write(fd, "(null)", 6);
+		return (6);
+	}
 	i = 0;
 	while (s[i] != '\0')
 	{
