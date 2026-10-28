@@ -19,18 +19,25 @@ int	print_char(va_list args)
 	int	c;
 
 	c = va_arg(args, int);
-	return (putchar(c));
+	return (ft_putchar_fd(c, 1));
 }
 
 int	print_str(va_list args)
 {
-	int	s;
+	char	*s;
 
 	s = va_arg(args, char *);
-	return (put_str(s));
+	return (ft_putstr_fd(s, 1));
 }
 
 int	print_percent(void)
 {
-	return (putchar('%'));
+	return (ft_putchar_fd('%', 1));
+}
+
+int	main(void)
+{
+	char letter = 'A';
+
+	ft_printf("%c", letter);
 }

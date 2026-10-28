@@ -17,13 +17,13 @@ int	print_int(va_list args)
 	int	n;
 
 	n = va_arg(args, int);
-	return (putnbr(n));
+	return (ft_putnbr_fd(n, 1));
 }
 
 int	print_unsigned(va_list args)
 {
-	int	n;
+	unsigned int	n;
 
 	n = va_arg(args, unsigned int);
-	return (put_unsigned(n));
+	return (put_unsigned(n, 1));
 }

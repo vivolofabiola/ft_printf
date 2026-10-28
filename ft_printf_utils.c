@@ -36,7 +36,7 @@ int	ft_putstr_fd(char *s, int fd)
 	return (i);
 }
 
-static int	put_unsigned(unsigned int n, int fd)
+int	put_unsigned(unsigned int n, int fd)
 {
 	int		count;
 	char	digit;
