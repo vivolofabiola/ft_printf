@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 # include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -34,7 +33,6 @@ int	print_str(va_list args);
 int	print_percent(void);
 
 /*ft_print_numbers*/
-int	print_nbr(va_list args);
 int	print_int(va_list args);
 int	print_unsigned(va_list args);
 

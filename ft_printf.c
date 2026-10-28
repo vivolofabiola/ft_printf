@@ -54,10 +54,10 @@ int	ft_printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				break ;
-			va_end(list);
 			return_value += handle_conversion(format[i + 1], list);
-			i++;
+			i += 2;
 		}
 	}
+	va_end(list);
 	return (return_value);
 }
