@@ -34,10 +34,3 @@ int	print_percent(void)
 {
 	return (ft_putchar_fd('%', 1));
 }
-
-int	main(void)
-{
-	char letter = 'A';
-
-	ft_printf("%c", letter);
-}
